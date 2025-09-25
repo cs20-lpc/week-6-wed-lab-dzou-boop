@@ -6,11 +6,11 @@ using namespace std;
  * Function prototypes
 *******************************************************************************/
 
-unsigned fact(unsigned);
-unsigned fib(unsigned);
-unsigned mult(unsigned, unsigned);
-unsigned power(unsigned, unsigned);
-unsigned product(unsigned, unsigned);
+unsigned fact(unsigned, int);
+unsigned fib(unsigned, int, int);
+unsigned mult(unsigned, unsigned, int);
+unsigned power(unsigned, unsigned, int);
+unsigned product(unsigned, unsigned, int);
 
 /*******************************************************************************
  * Description:
@@ -46,61 +46,72 @@ int main() {
  * TODO: make them tail recursive :)
 *******************************************************************************/
 
-unsigned fact(unsigned n) {
+unsigned fact(unsigned n, int product = 1) {
     // base cases (combined)
     if (n <= 1) {
-        return 1;
+        //return 1;
+        return product;
     }
 
     // recursive case
-    unsigned res = fact(n - 1);
-    return res * n;
+    //unsigned res = fact(n - 1);
+    //return res * n;
+    return fact(n - 1, product * n);
 }
 
-unsigned fib(unsigned n) {
+unsigned fib(unsigned n, int a = 0, int b =1) {
     // base case 1
     if (n == 0) {
-        return 0;
+        //return 0;
+        return a;
     }
 
     // base case 2
     else if (n == 1) {
-        return 1;
+        //return 1;
+        return b;
     }
 
     // recursive case
-    return fib(n - 1) + fib(n - 2);
+    //return fib(n - 1) + fib(n - 2);
+    return fib(n-1, b, a+b);
 }
 
-unsigned mult(unsigned x, unsigned y) {
+unsigned mult(unsigned x, unsigned y, int product = 0) {
     // base case
     if (y == 0) {
-        return 0;
+        //return 0;
+        return product;
     }
 
     // recursive case
-    unsigned res = mult(x, y - 1);
-    return res + x;
+    //unsigned res = mult(x, y - 1);
+    //return res + x;
+    return mult(x, y - 1, product + x);
 }
 
-unsigned power(unsigned x, unsigned y) {
+unsigned power(unsigned x, unsigned y, int product = 1) {
     // base case
     if (y == 0) {
-        return 1;
+        //return 1;
+        return product;
     }
 
     // recursive case
-    unsigned res = power(x, y - 1);
-    return res * x;
+    //unsigned res = power(x, y - 1);
+    //return res * x;
+    return power (x, y -1, product *x)
 }
 
-unsigned product(unsigned x, unsigned y) {
+unsigned product(unsigned x, unsigned y, int product = 1) {
     // base case
     if (x == y) {
-        return x;
+        //return x;
+        return product;
     }
 
     // recursive case
-    unsigned p = product(x + 1, y);
-    return p * x;
+    //unsigned p = product(x + 1, y);
+    //return p * x;
+    return product(x, y-1, product*y)
 }
