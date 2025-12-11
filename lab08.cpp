@@ -100,18 +100,18 @@ unsigned power(unsigned x, unsigned y, int product = 1) {
     // recursive case
     //unsigned res = power(x, y - 1);
     //return res * x;
-    return power (x, y -1, product *x)
+    return power (x, y -1, product *x);
 }
 
-unsigned product(unsigned x, unsigned y, int product = 1) {
+unsigned product(unsigned x, unsigned y, int producte = 1) {
     // base case
     if (x == y) {
         //return x;
-        return product;
+        return producte;
     }
 
     // recursive case
     //unsigned p = product(x + 1, y);
     //return p * x;
-    return product(x, y-1, product*y)
+    return product(x, y-1, producte*y);
 }
