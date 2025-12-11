@@ -6,11 +6,11 @@ using namespace std;
  * Function prototypes
 *******************************************************************************/
 
-unsigned fact(unsigned, int);
-unsigned fib(unsigned, int, int);
-unsigned mult(unsigned, unsigned, int);
-unsigned power(unsigned, unsigned, int);
-unsigned product(unsigned, unsigned, int);
+unsigned fact(unsigned, int = 1);
+unsigned fib(unsigned, int = 0, int = 1);
+unsigned mult(unsigned, unsigned, int = 0);
+unsigned power(unsigned, unsigned, int = 1);
+unsigned product(unsigned, unsigned, int = 1);
 
 /*******************************************************************************
  * Description:
@@ -46,7 +46,7 @@ int main() {
  * TODO: make them tail recursive :)
 *******************************************************************************/
 
-unsigned fact(unsigned n, int product = 1) {
+unsigned fact(unsigned n, int product) {
     // base cases (combined)
     if (n <= 1) {
         //return 1;
@@ -59,7 +59,7 @@ unsigned fact(unsigned n, int product = 1) {
     return fact(n - 1, product * n);
 }
 
-unsigned fib(unsigned n, int a = 0, int b =1) {
+unsigned fib(unsigned n, int a, int b) {
     // base case 1
     if (n == 0) {
         //return 0;
@@ -77,7 +77,7 @@ unsigned fib(unsigned n, int a = 0, int b =1) {
     return fib(n-1, b, a+b);
 }
 
-unsigned mult(unsigned x, unsigned y, int product = 0) {
+unsigned mult(unsigned x, unsigned y, int product) {
     // base case
     if (y == 0) {
         //return 0;
@@ -90,7 +90,7 @@ unsigned mult(unsigned x, unsigned y, int product = 0) {
     return mult(x, y - 1, product + x);
 }
 
-unsigned power(unsigned x, unsigned y, int product = 1) {
+unsigned power(unsigned x, unsigned y, int product) {
     // base case
     if (y == 0) {
         //return 1;
@@ -103,7 +103,7 @@ unsigned power(unsigned x, unsigned y, int product = 1) {
     return power (x, y -1, product *x);
 }
 
-unsigned product(unsigned x, unsigned y, int producte = 1) {
+unsigned product(unsigned x, unsigned y, int producte) {
     // base case
     if (x == y) {
         //return x;
